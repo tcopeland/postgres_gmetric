@@ -55,7 +55,7 @@ def publish(sql)
   lines[0].split('|').each do |colname|
     v=values[col]
     puts "#{colname}=#{v}" if $options[:verbose]
-    `gmetric --name "pg_#{colname}" --value #{v} --type float --dmax=240`
+    `gmetric  --group postgresql --name "pg_#{colname}" --value #{v} --type float --dmax=240`
     col=col+1
   end
 end
